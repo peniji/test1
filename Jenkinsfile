@@ -8,10 +8,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Git Checkout') {
             steps {
-                echo 'Checking out source code from GitHub...'
-                checkout scm
+                git branch: 'main',
+                    credentialsId: 'github-credentials',
+                    url: 'https://github.com/peniji/test1.git'
             }
         }
 
